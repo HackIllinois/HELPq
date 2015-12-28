@@ -27,8 +27,15 @@
     }
 
     #login {
-      max-width: 320px;
+      max-width: 640px;
+      height: 300px;
+      padding: 3.5em;
       margin: 0 auto;
+      padding: 3em;
+      position: relative;
+      border-radius: 1px;
+      background-color: #fff;
+      margin: .95em auto 0;
     }
 
   }

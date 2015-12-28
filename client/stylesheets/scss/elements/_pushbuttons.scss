@@ -10,9 +10,6 @@ button.push {
   padding: .7em 1em;
   border: none;
   background: grey;
-  border-bottom: 4px solid grey;
-  border-bottom-color: lighten(grey, 10);
-  text-transform: uppercase;
   transition-duration: .2s;
 
   &:focus {

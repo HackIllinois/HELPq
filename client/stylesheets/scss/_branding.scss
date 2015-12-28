@@ -8,16 +8,19 @@
 //------------------------------
 
 // Primary color of your brand (Used for primary buttons, glows, etc.)
-$brand-primary: #137DC3;
+$brand-primary: #E98473;
 
 // Secondary color of your brand (used for secondary buttons)
-$brand-secondary: #FFBF0A;
+$brand-secondary: #413F56;
+
+// Backound color for banner
+$brand-background: #1C1A25;
 
 // Success Buttons
-$brand-success: rgb(46, 204, 113);
+$brand-success: #EFA576;
 
 // Danger/Negative Buttons
-$brand-danger: #FF490A;
+$brand-danger: #FF6B6E;
 
 // Black
 $black: #2d2d2d;
@@ -46,8 +49,18 @@ $github-gray: #e4e4e4;
 //------------------------------
 
 // Styling for the fonts
+@font-face {
+  font-family: "BrandonReg";
+  src:
+  url("/fonts/Brandon_light.woff"),
+  url("/fonts/Brandon_light.ttf"),
+  url("/fonts/Brandon_light.svg"),
+  url("/fonts/Brandon_light.eot");
+}
+
+
 @mixin font-stack(){
-  font-family: 'Lato', 'Helvetica Neue', 'Helvetica', sans-serif;
+  font-family: BrandonReg;
   font-weight: 300;
 }
 
@@ -82,7 +95,7 @@ $github-gray: #e4e4e4;
   // background-size: cover;
 
   // Background image that repeats
-  background: url(/assets/images/geometry2.png) repeat;
+  background-color: $brand-background;
 }
 
 
@@ -99,7 +112,7 @@ $github-gray: #e4e4e4;
   // background: $brand-primary;
 
   // Repeated Background:
-  background: url(/assets/images/geometry2.png) repeat;
+  background-color: $brand-background;
 }
 
 // Footer, which appears on each page.

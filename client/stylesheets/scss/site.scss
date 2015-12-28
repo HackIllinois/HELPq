@@ -2,9 +2,11 @@
 @import 'keyframes';
 @import 'mixins';
 
+
 // Individual Elements
 @import 'elements/pushbuttons';
 @import 'elements/cleaninput';
+@import 'elements/field';
 
 // Components
 @import 'components/banner';
@@ -28,7 +30,8 @@ html,
 button,
 input {
   @include font-stack();
-  color: #303030;
+  color:#222; //#303030;
+
 }
 
 body,
@@ -43,4 +46,3 @@ html {
 
 // Any overrides
 @import 'override';
-
