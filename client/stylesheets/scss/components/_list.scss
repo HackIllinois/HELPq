@@ -1,0 +1,25 @@
+.list {
+    color: white !important;
+}
+
+.listTicket {
+    height: 50px !important;
+    position: relative !important;
+    border-radius: 1px !important;
+    background-color: #fff !important;
+
+
+    .content {
+        position: absolute;
+        top: 40%;
+        left: 45%;
+        transform: translate(-50%, -50%);
+    }
+
+    .label {
+        position: absolute;
+        top: 50%;
+        left: 10%;
+        transform: translate(-50%, -50%);
+    }
+}

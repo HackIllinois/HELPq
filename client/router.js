@@ -11,9 +11,23 @@ Router.route('/', function(){
   this.render('home');
 });
 
+Router.route('/dashboard', function(){
+    this.layout('bannerLayout');
+    this.render('dashboard');
+})
+
 Router.route('/profile', function(){
   this.layout('bannerLayout');
   this.render('profile');
+});
+
+Router.route('/sponsor', function(){
+    this.layout('bannerLayout');
+//    if (authorized.sponsor()){
+        this.render('sponsor');
+//    } else {
+//        this.render('error', { data: { msg: "Your account cannot access these features!"}});
+//    }
 });
 
 Router.route('/mentor', function(){

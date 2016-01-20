@@ -14,6 +14,7 @@
 
         <div class="right menu">
           {{> navMentor }}
+          {{> navSponsor }}
           {{> navAccount }}
         </div>
       </div>
@@ -52,6 +53,15 @@
     </a>
   {{/if}}
 </template>
+
+<template name="navSponsor">
+  <!--{{#if userIs 'sponsor'}}-->
+    <a class="icon item" href="/sponsor">
+      <i class="ui search icon"></i>
+    </a>
+  <!--{{/if}}-->
+</template>
+
 
 <template name="navAccount">
 

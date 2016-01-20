@@ -1,6 +1,11 @@
 #banner {
   margin-bottom: 12px;
-
+  #banner-logo{
+    height: 150px;
+    padding-bottom: 25px;
+    padding-top: 30px;
+    margin-top: -50px;
+  }
   .content {
     @include logo-font();
     font-size: 3em;

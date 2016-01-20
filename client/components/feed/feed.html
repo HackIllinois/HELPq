@@ -2,7 +2,7 @@
   <div class="feed-title">
     Currently in the queue:
   </div>
-  <div class="ui feed">
+  <div class="ui feed list">
     {{#if tickets}}
       {{#each tickets}}
         {{> feedTicket }}
@@ -14,7 +14,7 @@
 </template>
 
 <template name="feedTicket">
-  <div class="event feedTicket">
+  <div class="event feedTicket listTicket">
     <div class="label">
       {{#if open}}
         <i class="circle thin icon"></i>

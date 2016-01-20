@@ -9,6 +9,7 @@
 @import 'elements/field';
 
 // Components
+@import 'components/list';
 @import 'components/banner';
 @import 'components/nav';
 @import 'components/tickets';
@@ -39,6 +40,10 @@ html {
   margin: 0;
   padding: 0;
   height: 100%;
+}
+
+#container {
+    background-color: $brand-background;
 }
 
 // Layout
