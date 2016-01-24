@@ -21,7 +21,7 @@
  *  }
  *
  */
-Tickets = new Meteor.Collection('tickets');
+Tickets = new Mongo.Collection('tickets');
 
 /**
  * Announcement:
@@ -33,7 +33,7 @@ Tickets = new Meteor.Collection('tickets');
   *   timestamp: Number (Milliseconds)
  *  }
  */
-Announcements = new Meteor.Collection('announcements');
+Announcements = new Mongo.Collection('announcements');
 
 /**
  * Settings contain all of the information that can be edited on the client side.
@@ -44,7 +44,12 @@ Announcements = new Meteor.Collection('announcements');
  *  expirationDelay: Number (Milliseconds)
  * }
  */
-Settings = new Meteor.Collection('settings');
+Settings = new Mongo.Collection('settings');
+
+
+
+Tweets = new Mongo.Collection('tweets');
+
 
 /**
  * Users:
@@ -72,6 +77,7 @@ Meteor.users.allow({
     return user.profile.admin;
   }
 });
+
 
 // Currently, disable all direct modifications
 Tickets.allow({

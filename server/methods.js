@@ -14,10 +14,13 @@ Meteor.methods({
 
   createAnnouncement: createAnnouncement,
   deleteAnnouncement: deleteAnnouncement,
+  listAnnouncements: listAnnouncements,
 
   toggleRole: toggleRole,
   updateUser: updateUser,
   createAccount: createAccount,
+
+  createTweet: createTweet,
 
   setSetting : setSetting
 });
@@ -198,6 +201,12 @@ function expireTicket(id){
   }
 }
 
+function createTweet(tweet) {
+    Tweets.insert(tweet);
+    _log("Tweet by " + tweet.screen_name + " inserted");
+}
+
+
 function createAnnouncement(header, content, type){
   if (authorized.admin(this.userId)){
     var user = _getUser(this.userId);
@@ -229,7 +238,7 @@ function deleteAnnouncement(id){
 function toggleRole(role, id){
   if (authorized.admin(this.userId)){
     // can only toggle available roles
-    var roles = ["admin", "mentor"];
+    var roles = ["admin", "mentor", 'sponsor'];
     if (roles.indexOf(role) < 0) return;
 
     var user = _getUser(id);
@@ -256,7 +265,8 @@ function updateUser(id, profile){
       'name',
       'email',
       'phone',
-      'company'
+      'company',
+      'School'
     ];
 
     // Copy the user profile
@@ -307,4 +317,9 @@ function setSetting(setting, value){
     toSet[setting] = value;
     Settings.update({}, {$set: toSet});
   }
+}
+
+function listAnnouncements() {
+    console.log("HI");
+    return !!Announcements.find({});
 }

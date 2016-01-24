@@ -1,6 +1,7 @@
-Tickets = new Meteor.Collection("tickets");
-Announcements = new Meteor.Collection("announcements");
-Settings = new Meteor.Collection("settings");
+Tickets = new Mongo.Collection("tickets");
+Announcements = new Mongo.Collection("announcements");
+Settings = new Mongo.Collection("settings");
+Tweets = new Mongo.Collection("tweets");
 
 Meteor.subscribe("userData");
 
@@ -11,3 +12,5 @@ Meteor.subscribe("allAnnouncements");
 Meteor.subscribe("mentorsOnline");
 
 Meteor.subscribe("settings");
+
+Meteor.subscribe("tweets");

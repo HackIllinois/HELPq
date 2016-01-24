@@ -16,6 +16,8 @@ Meteor.publish("allAnnouncements", getAllAnnouncements);
 
 Meteor.publish("settings", getSettings);
 
+Meteor.publish("tweets", getTweets);
+
 // Get user data on yourself
 function getUserData(){
   if (authorized.user(this.userId)) {
@@ -160,4 +162,8 @@ function getSettings(){
   if (authorized.user(this.userId)){
     return Settings.find({});
   }
+}
+
+function getTweets() {
+    return Tweets.find({});
 }

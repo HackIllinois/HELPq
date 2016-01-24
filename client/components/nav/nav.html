@@ -1,76 +1,83 @@
 <template name="nav">
-  {{#if currentUser }}
+    {{#if currentUser }}
     <div id="nav">
-      <div class="ui secondary inverted menu">
-        <a class="icon item" href="/">
-          <i class="ui home icon"></i>
-        </a>
+        <div class="ui secondary inverted menu">
+            <a class="icon item" href="/">
+                <i class="ui home icon"></i>
+            </a>
 
-        {{#if userIs 'admin'}}
-          <a class="icon item" href="/admin">
-            <i class="ui settings icon"></i>
-          </a>
-        {{/if}}
+            {{#if userIs 'admin'}}
+            <a class="icon item" href="/admin">
+                <i class="ui settings icon"></i>
+            </a>
+            {{/if}}
 
-        <div class="right menu">
-          {{> navMentor }}
-          {{> navSponsor }}
-          {{> navAccount }}
+            <div class="right menu">
+                {{> navSponsor }}
+                {{> navMentor }}
+                {{> navDash }}
+                {{> navAccount }}
+            </div>
         </div>
-      </div>
     </div>
 
     <div id="mobile-nav">
-      {{#if userIs 'mentor'}}
+        {{#if userIs 'mentor'}}
         <div class="ui bottom fixed three item labeled icon menu">
-          <a class="item" href="/">
-            <i class="home icon"></i>
-            Home
-          </a>
-          <a class="item" href="/mentor">
-            <i class="inbox icon"></i>
-            Mentor
-          </a>
-          <a class="item" href="/profile">
-            <i class="child icon"></i>
-            Profile
-          </a>
+            <a class="item" href="/">
+                <i class="home icon"></i>
+                Home
+            </a>
+            <a class="item" href="/mentor">
+                <i class="inbox icon"></i>
+                Mentor
+            </a>
+            <a class="item" href="/profile">
+                <i class="child icon"></i>
+                Profile
+            </a>
         </div>
-      {{/if}}
+        {{/if}}
     </div>
-  {{/if}}
+    {{/if}}
+</template>
+
+<template name="navDash">
+    <a class="icon item" href="/dashboard">
+        <i class="ui list icon"></i>
+    </a>
 </template>
 
 <template name="navMentor">
-  {{#if userIs 'mentor'}}
+    {{#if userIs 'mentor'}}
     <a class="icon item" href="/mentor">
-      <i class="ui inbox icon"></i>
-      {{#if openTickets}}
+        <i class="ui inbox icon"></i>
+        {{#if openTickets}}
         <div class="ui tiny floating notification red label">
-          {{ openTickets }}
+            {{ openTickets }}
         </div>
-      {{/if}}
+        {{/if}}
     </a>
-  {{/if}}
+    {{/if}}
 </template>
 
 <template name="navSponsor">
-  <!--{{#if userIs 'sponsor'}}-->
-    <a class="icon item" href="/sponsor">
-      <i class="ui search icon"></i>
-    </a>
-  <!--{{/if}}-->
+    {{#if userIs 'sponsor'}}
+        <a class="icon item" href="/sponsor">
+            <i class="ui search icon"></i>
+        </a>
+    {{/if}}
 </template>
 
 
 <template name="navAccount">
 
-  <div class="ui dropdown item">
-    {{profile}}<i class="dropdown icon"></i>
-    <div class="menu">
-      <a class="item" href="/profile">Your Profile</a>
-      <a class="item" id="logout">Logout</a>
+    <div class="ui dropdown item">
+        {{profile}}<i class="dropdown icon"></i>
+        <div class="menu">
+            <a class="item" href="/profile">Your Profile</a>
+            <a class="item" id="logout">Logout</a>
+        </div>
     </div>
-  </div>
 
 </template>

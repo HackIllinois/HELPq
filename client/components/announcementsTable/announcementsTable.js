@@ -1,13 +1,11 @@
-Template.announcementsTable.helpers({
-  announcements: function(){
-    return Announcements.find({
+Template.announcement.onCreated(function(){
+  this.subscribe("allAnnouncements");
+  //return Announcements.find({},{sort: {timestamp: -1}});
+  Session.set('requestInProgress', true);
+  this.announcements = Meteor.call('listAnnouncements');
+});
 
-    }, {
-      sort: {
-        timestamp: -1
-      }
-    })
-  },
+Template.announcementsTable.helpers({
   time: function(){
     return moment(this.timestamp).format('MMMM Do YYYY, h:mm a');
   }

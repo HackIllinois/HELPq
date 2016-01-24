@@ -2,6 +2,7 @@
 Template.settings.rendered = function(){
   $(this.findAll('.ui.checkbox')).checkbox();
   setRadio('expirationDelay');
+  console.log(Tweets);
 };
 
 Template.settings.helpers({
