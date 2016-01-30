@@ -1,8 +1,8 @@
 <template name="admin">
   <div id="admin">
-    <div class="sixteen column centered stackable ui grid">
+    <div class="sixteen column centered stackable ui sharp grid">
       <div class="three wide column">
-        <div class="ui vertical pointing fluid admin menu">
+        <div class="ui sharp vertical pointing flui sharpd admin menu">
           <a class="{{isActive 'announce'}} item" data-goto="announce">
             <i class="announcement icon"></i> Announce
           </a>
@@ -28,10 +28,10 @@
       </div>
 
       <div class="thirteen wide column">
-        <!-- {{#if pageIs 'announce'}}
+        {{#if pageIs 'announce'}}
           {{> announcer }}
           {{> announcementsTable}}
-        {{/if}} -->
+        {{/if}}
 
         {{#if pageIs 'users'}}
           {{> userTable }}

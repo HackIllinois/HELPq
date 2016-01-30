@@ -24,3 +24,4 @@ Template.twitterFeed.helpers({
         return output = text.replace( regex, replace );
     }
 });
+ 

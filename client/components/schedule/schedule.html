@@ -1,0 +1,20 @@
+<template name="schedule">
+    <h2 id="head-title"> Schedule</h2>
+    <div class="feed-wrap">
+    <div class="feeds">
+        {{#each events}}
+        <div class="ui sharp message ">
+            <div class="header">
+            {{event}}
+            </div>
+            <p class="date">
+                {{time}}
+            </p>
+            <p>
+                {{location}} - {{room}}
+            </p>
+        </div>
+        {{/each}}
+    </div>
+</div>
+</template>

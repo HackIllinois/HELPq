@@ -1,15 +1,15 @@
 <template name="login">
-  <div id="login" class="ui segment">
+  <div id="login" class="ui sharp segment">
     {{#if error}}
-      <div class="ui small error message">
+      <div class="ui sharp small error message">
         {{error}}
       </div>
     {{/if}}
-    <div class="ui login-password form">
+    <div class="ui sharp login-password form">
 
       <div class="field">
         <label> Email </label>
-        <input type="text" id='username' placeholder="Email">
+        <input type="text" autocapitalize="none" id='email' placeholder="Email">
       </div>
       <div class="field">
         <label> Password </label>
@@ -20,14 +20,20 @@
       </div>
     </div>
 
+
+
     {{#if enabled.github}}
     <br>
-    <button id="login-github" class="fluid github push button"> Login with Github </button>
+    <button id="login-github" class="flui sharpd github push button"> Login with Github </button>
     {{/if}}
 
     {{#if enabled.facebook}}
     <br>
-    <button id="login-facebook" class="fluid facebook push button"> Login with Facebook</button>
+    <button id="login-facebook" class="flui sharpd facebook push button"> Login with Facebook</button>
     {{/if}}
+
+    <div class="field">
+        <a href="/forgot" color="black"> <label> Forgot Password </label></a>
+    </div>
   </div>
 </template>

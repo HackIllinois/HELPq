@@ -1,11 +1,11 @@
 <template name="userStats">
   <div class="userStats">
-    <div class="ui top attached tertiary header segment">
+    <div class="ui sharp top attached tertiary header segment">
       <strong>
         User Summary
       </strong>
     </div>
-    <div class="ui bottom attached segment">
+    <div class="ui sharp bottom attached segment">
 
       <div>
         Total Users:
@@ -38,11 +38,11 @@
         <strong>{{activeMentors}}</strong> have completed tickets.
       </p>
 
-      <h4 class="ui dividing header">Topic Word Frequencies</h4>
+      <h4 class="ui sharp dividing header">Topic Word Frequencies</h4>
 
-      <div class="ui labels">
+      <div class="ui sharp labels">
         {{#each wordFreqs}}
-          <div class="ui label">
+          <div class="ui sharp label">
             {{word}} {{count}}
           </div>
         {{/each}}

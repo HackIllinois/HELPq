@@ -1,19 +1,26 @@
 <template name="announcementsTable">
-  {{#each announcements}}
-    <div class="ui {{type}} message">
-      <i class="close red link icon"></i>
-      <div class="header">
-        {{header}}
-      </div>
-      <p class="date">
-        {{time}}
-      </p>
-      <p>
-        {{content}}
-      </p>
-      <p>
-        - {{name}}
-      </p>
+    <h2 id="head-title"> Current Announcements</h2>
+    <div class="feed-wrap">
+    <div class="feeds">
+        {{#each announcements}}
+        <div class="ui sharp {{type}} message ">
+            {{#if userIs 'admin'}}
+                <i class="close red link icon"></i>
+            {{/if}}
+            <div class="header">
+                {{header}}
+            </div>
+            <p class="date">
+                {{time}}
+            </p>
+            <p>
+                {{content}}
+            </p>
+            <p>
+                - {{name}}
+            </p>
+        </div>
+        {{/each}}
     </div>
-  {{/each}}
+</div>
 </template>

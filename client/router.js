@@ -1,18 +1,22 @@
 var requireLogin = function() {
   if (! Meteor.user()) {
    // If user is not logged in render landingpage
-   this.render('splash'); 
+   this.render('splash');
  } else {
    //if user is logged in render whatever route was requested
    this.next();
  }
 }
 
-Router.onBeforeAction(requireLogin, {except: ['dashboard']});
+Router.onBeforeAction(requireLogin, {except: ['dashboard', 'forgot']});
 
 Router.route('/', function(){
   this.layout('bannerLayout');
   this.render('home');
+});
+
+Router.route('/forgot', function(){
+  this.render('forgot');
 });
 
 Router.route('/dashboard', function(){

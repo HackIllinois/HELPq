@@ -36,3 +36,7 @@ meteorhacks:npm
 
 
 npm-container
+browser-policy
+ecmascript
+http
+webapp

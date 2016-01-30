@@ -18,9 +18,11 @@
 @import 'components/userStats';
 @import 'components/userEdit';
 @import 'components/userTable';
+@import 'components/announcementsTable';
 
 // Views
 @import 'views/splash';
+@import 'views/dashboard';
 @import 'views/home';
 @import 'views/error';
 @import 'views/admin';
@@ -43,7 +45,10 @@ html {
 }
 
 #container {
-    background-color: $brand-background;
+    background: linear-gradient(
+      rgba(0, 0, 0, 0.3),
+      rgba(0, 0, 0, 0.3)
+    ),url(/assets/images/bg@2x.png);
 }
 
 // Layout

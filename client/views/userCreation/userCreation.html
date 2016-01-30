@@ -1,25 +1,25 @@
 <template name="userCreation">
-  <div class="ui two column stackable grid">
+  <div class="ui sharp two column stackable grid">
     <div class="column">
-      <div class="ui segment">
-        <h3 class="ui dividing header">
+      <div class="ui sharp segment">
+        <h3 class="ui sharp dividing header">
           Batch User Creation
         </h3>
-        <div class="ui form">
+        <div class="ui sharp form">
           <div class="field">
             <label>CSV Format: Username (unique), Password, Name</label>
             <textarea id="usersCsv"></textarea>
           </div>
           <div class="field">
-            <div id="checkFormat" class="ui blue button">
+            <div id="checkFormat" class="ui sharp blue button">
               Check Format
             </div>
             {{#if ready}}
-              <div id="createUsers" class="ui green button">
+              <div id="createUsers" class="ui sharp green button">
                 Create Users
               </div>
             {{else}}
-              <div id="createUsers" class="ui disabled green button">
+              <div id="createUsers" class="ui sharp disabled green button">
                 Create Users
               </div>
             {{/if}}
@@ -28,16 +28,16 @@
       </div>
     </div>
     <div class="column">
-      <div class="ui segment">
-        <h3 class="ui dividing header">
+      <div class="ui sharp segment">
+        <h3 class="ui sharp dividing header">
           Check Output:
         </h3>
         {{#if error}}
-          <div class="ui error message">
+          <div class="ui sharp error message">
             {{error}}
           </div>
         {{/if}}
-        <div class="ui relaxed list">
+        <div class="ui sharp relaxed list">
           {{#each formattedUsers}}
             <div class="item">
               {{#if success}}

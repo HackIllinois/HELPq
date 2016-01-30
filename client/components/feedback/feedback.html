@@ -1,9 +1,9 @@
 <template name="feedback">
-  <div id="feedback" class="ui segment">
-    <h3 class="ui dividing header">
+  <div id="feedback" class="ui sharp segment">
+    <h3 class="ui sharp dividing header">
       Feedback
     </h3>
-    <div class="ui feed">
+    <div class="ui sharp feed">
       {{#each tickets}}
         {{> feedbackItem }}
       {{/each}}
@@ -15,7 +15,7 @@
   <div class="event">
     <div class="content">
       <div class="summary">
-        {{name}} <div class="ui yellow star rating" data-rating="{{rating}}"></div>
+        {{name}} <div class="ui sharp yellow star rating" data-rating="{{rating}}"></div>
       </div>
       {{#if comments}}
         {{#if negative}}

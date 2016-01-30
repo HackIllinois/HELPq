@@ -42,7 +42,18 @@ button.push {
   &.primary {
     background: $brand-primary;
     border-bottom-color: lighten($brand-primary, 10);
+    -webkit-tap-highlight-color: lighten($brand-primary, 10);
+    -webkit-tap-highlight-color: transparent; /* For some Androids */
   }
+
+  &.primary:hover {
+      background: lighten($brand-primary, 10);
+  }
+
+  &.primary:active {
+     background: lighten($brand-primary, 10);
+  }
+
 
   &.secondary {
     background: $brand-secondary;

@@ -1,6 +1,7 @@
 *.iml
 .idea/
 private/config.json
+private/schedule.csv
 .sass-cache/
 .DS_Store
 node_modules/*

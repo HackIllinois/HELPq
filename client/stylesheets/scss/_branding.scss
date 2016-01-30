@@ -14,7 +14,10 @@ $brand-primary: #E98473;
 $brand-secondary: #413F56;
 
 // Backound color for banner
-$brand-background: #1C1A25;
+$brand-background: linear-gradient(
+  rgba(0, 0, 0, 0.3),
+  rgba(0, 0, 0, 0.3)
+),url(/assets/images/bg@2x.png) ;
 
 // Success Buttons
 $brand-success: #79B3B0;
@@ -95,7 +98,7 @@ $github-gray: #e4e4e4;
   // background-size: cover;
 
   // Background image that repeats
-  background-color: $brand-background;
+  background: $brand-background !important;
 }
 
 
@@ -112,10 +115,15 @@ $github-gray: #e4e4e4;
   // background: $brand-primary;
 
   // Repeated Background:
-  background-color: $brand-background;
+  background: $brand-background;
 }
 
 // Footer, which appears on each page.
 footer {
   color: darken(white, 25%);
+}
+
+html::-webkit-scrollbar {
+  /* This is the magic bit */
+  display: none;
 }

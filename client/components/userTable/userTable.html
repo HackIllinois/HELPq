@@ -1,14 +1,14 @@
 <template name="userTable">
-    <div class="ui form">
+    <div class="ui sharp form">
         <div class="fields">
             <div class="thirteen wide field">
-                <div class="ui left icon fluid input">
+                <div class="ui sharp left icon flui sharpd input">
                     <i class="search icon"></i>
                     <input type="text" class="searchText" placeholder="Search..." value="{{searchText}}">
                 </div>
             </div>
             <div class="three wide field">
-                <div class="ui right aligned pointing top right dropdown labeled icon fluid button">
+                <div class="ui sharp right aligned pointing top right dropdown labeled icon flui sharpd button">
                     <i class="filter icon"></i>
                     <span class="text">Filter Users</span>
                     <div class="menu">
@@ -21,23 +21,27 @@
                             All
                         </div>
                         <div class="filter item" data-filter="mentor">
-                            <div class="ui blue empty circular label"></div>
+                            <div class="ui  blue empty circular label"></div>
                             Mentor
                         </div>
                         <div class="filter item" data-filter="admin">
-                            <div class="ui yellow empty circular label"></div>
+                            <div class="ui  yellow empty circular label"></div>
                             Admin
                         </div>
+                        <div class="filter item" data-filter="sponsor">
+                            <div class="ui  red empty circular label"></div>
+                            Sponsor
+                        </div>
                         <div class="filter item" data-filter="student">
-                            <div class="ui black empty circular label"></div>
-                            Student
+                            <div class="ui  black empty circular label"></div>
+                            Hacker
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <table class="ui striped table userTable">
+    <table class="ui sharp striped table userTable">
         <thead>
             <tr>
                 <th>Username</th>
@@ -77,7 +81,7 @@
 
                 <td>
                     {{#each profile.skills }}
-                    <span class="ui label">
+                    <span class="ui sharp label">
                         {{this}}
                     </span>
                     {{/each}}
@@ -85,36 +89,36 @@
 
                 <td class="right aligned collapsing">
                     {{#if profile.sponsor}}
-                    <span class="ui tiny blue button toggle-sponsor">
+                    <span class="ui sharp tiny blue button toggle-sponsor">
                         Sponsor
                     </span>
                     {{else}}
-                    <span class="ui tiny basic button toggle-sponsor">
+                    <span class="ui sharp tiny basic button toggle-sponsor">
                         Sponsor
                     </span>
                     {{/if}}
 
                     {{#if profile.mentor}}
-                    <span class="ui tiny blue button toggle-mentor">
+                    <span class="ui sharp tiny blue button toggle-mentor">
                         Mentor
                     </span>
                     {{else}}
-                    <span class="ui tiny basic button toggle-mentor">
+                    <span class="ui sharp tiny basic button toggle-mentor">
                         Mentor
                     </span>
                     {{/if}}
 
                     {{#if profile.admin}}
-                    <span class="ui tiny blue button toggle-admin">
+                    <span class="ui sharp tiny blue button toggle-admin">
                         Admin
                     </span>
                     {{else}}
-                    <span class="ui tiny basic button toggle-admin">
+                    <span class="ui sharp tiny basic button toggle-admin">
                         Admin
                     </span>
                     {{/if}}
 
-                    <span class="ui tiny button edit-user">
+                    <span class="ui sharp tiny button edit-user">
                         Edit
                     </span>
                 </td>
@@ -123,7 +127,7 @@
         </tbody>
     </table>
 
-    <div class="ui edit-user small modal">
+    <div class="ui sharp edit-user small modal">
         <i class="close icon"></i>
         <div class="header">
             Edit User

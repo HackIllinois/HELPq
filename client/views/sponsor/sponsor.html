@@ -1,9 +1,14 @@
 <template name="sponsor">
     <div id="sponsor">
         <div class="container">
-            <div class="ui stackable grid">
-                {{> barcode}}
+            <div class="ui sharp centered stackable grid">
+                {{> hackerSearch}}
             </div>
+            {{#unless isCordova}}
+                <div class="ui sharp centered stackable grid">
+                    {{> barcode}}
+                </div>
+            {{/unless}}
         </div>
     </div>
 </template>

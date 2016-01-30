@@ -1,0 +1,107 @@
+<template name="hackerSearch">
+    <div class="ui sharp form">
+        <div class="fields">
+            <div class="thirteen wide field">
+                <div class="ui sharp left icon flui sharpd input">
+                    <i class="search icon"></i>
+                    <input type="text" class="searchText" placeholder="Search..." value="{{searchText}}">
+                </div>
+            </div>
+        </div>
+    </div>
+    <table class="ui sharp striped table userTable">
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Skills</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each users}}
+            <tr>
+                <td>
+                    {{ username }}
+                </td>
+                <td>
+                    <strong>
+                        {{#if profile.name }}
+                        {{ profile.name }}
+                        {{else}}
+                        {{ services.github.username }}
+                        {{/if}}
+                    </strong>
+                </td>
+                <td>
+                    {{#if profile.email }}
+                    {{ profile.email }}
+                    {{else}}
+                    {{ services.github.email }}
+                    {{/if}}
+                </td>
+
+                <td>
+                    {{ profile.phone }}
+                </td>
+
+                <td>
+                    {{#each profile.skills }}
+                    <span class="ui sharp label">
+                        {{this}}
+                    </span>
+                    {{/each}}
+                </td>
+
+                <td class="right aligned collapsing">
+                    {{#if profile.sponsor}}
+                    <span class="ui sharp tiny blue button toggle-sponsor">
+                        Sponsor
+                    </span>
+                    {{else}}
+                    <span class="ui sharp tiny basic button toggle-sponsor">
+                        Sponsor
+                    </span>
+                    {{/if}}
+
+                    {{#if profile.mentor}}
+                    <span class="ui sharp tiny blue button toggle-mentor">
+                        Mentor
+                    </span>
+                    {{else}}
+                    <span class="ui sharp tiny basic button toggle-mentor">
+                        Mentor
+                    </span>
+                    {{/if}}
+
+                    {{#if profile.admin}}
+                    <span class="ui sharp tiny blue button toggle-admin">
+                        Admin
+                    </span>
+                    {{else}}
+                    <span class="ui sharp tiny basic button toggle-admin">
+                        Admin
+                    </span>
+                    {{/if}}
+
+                    <span class="ui sharp tiny button edit-user">
+                        Edit
+                    </span>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+
+    <div class="ui sharp edit-user small modal">
+        <i class="close icon"></i>
+        <div class="header">
+            Edit User
+        </div>
+        <div class="content">
+        </div>
+    </div>
+
+</template>

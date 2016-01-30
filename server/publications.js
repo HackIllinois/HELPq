@@ -14,6 +14,8 @@ Meteor.publish("userTickets", getUserTickets);
 
 Meteor.publish("allAnnouncements", getAllAnnouncements);
 
+Meteor.publish("allEvents", getAllEvents);
+
 Meteor.publish("settings", getSettings);
 
 Meteor.publish("tweets", getTweets);
@@ -153,9 +155,11 @@ function getUserTickets(){
 
 // Get all of the announcements
 function getAllAnnouncements(){
-  if (authorized.user(this.userId)){
     return Announcements.find({});
-  }
+}
+
+function getAllEvents() {
+    return Events.find({});
 }
 
 function getSettings(){

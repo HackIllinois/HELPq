@@ -1,9 +1,9 @@
 <template name="leaderboard">
-  <div class="ui yellow segment">
-    <h3 class="ui dividing header">
+  <div class="ui sharp yellow segment ">
+    <h3 class="ui sharp dividing header">
       Leaderboard
     </h3>
-    <div class="ui large relaxed ordered list">
+    <div class="ui sharp large relaxed ordered list">
       {{#each topMentors}}
         {{> leaderboardUser}}
       {{/each}}
@@ -13,12 +13,12 @@
 </template>
 
 <template name="leaderboardUser">
-  <div class="item">
+  <div class="item ">
     <div class="content">
       <strong>{{profile.name}}</strong>
       <em>{{profile.company}}</em>
       <p>
-        <strong>{{rating}}</strong> <i class="ui yellow star icon"></i> ({{numTickets}} Tickets)
+        <strong>{{rating}}</strong> <i class="ui sharp yellow star icon"></i> ({{numTickets}} Tickets)
       </p>
     </div>
   </div>

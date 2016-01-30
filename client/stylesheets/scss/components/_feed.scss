@@ -1,4 +1,7 @@
 .feed {
+
+    height: 45vh;
+
   .claimed.icon {
     color: white !important;
     @include pulse(iconPulse, 2s);

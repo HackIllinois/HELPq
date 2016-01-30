@@ -50,21 +50,17 @@ Settings = new Mongo.Collection('settings');
 
 Tweets = new Mongo.Collection('tweets');
 
-
-/**
- * Users:
- * {
- *    profile: {
- *      name: STRING
- *      email: STRING
- *      phone: STRING
- *      company: STRING
- *      mentor: BOOLEAN
- *      admin: BOOLEAN
- *      skills: [STRING]
- *    }
- * }
- */
+ /**
+  *
+  * Events:
+  *  {
+  *     timestamp: Number (Milliseconds),
+  *     event: STRING
+  *     location: STRING
+  *     room: STRING
+  *   }
+  */
+ Events = new Mongo.Collection('events');
 
 // ----------------------------------------
 // Collection Permissions
@@ -109,4 +105,10 @@ Settings.allow({
   insert: function() {return false},
   update: function() {return false},
   remove: function() {return false}
+});
+
+Events.allow({
+    insert: function() {return false},
+    update: function() {return false},
+    remove: function() {return false}
 });

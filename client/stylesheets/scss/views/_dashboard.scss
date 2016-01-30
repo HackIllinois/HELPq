@@ -1,0 +1,13 @@
+.feeds {
+    height: 74vh;
+    padding-right: 15px;
+    overflow-y: auto;
+    width: calc(100% + 	17px);
+    overflow-x: hidden;
+}
+
+.feed-wrap {
+    overflow-y: hidden;
+    height: 75vh;
+    overflow-x: hidden !important;
+}

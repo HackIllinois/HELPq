@@ -1,6 +1,6 @@
 <template name="ticketPanel">
-  <div class="ticketPanel">
-    <div class="ui segment">
+  <div class="ticketPanel ">
+    <div class="ui sharp segment">
       {{#if queueEnabled}}
 
         {{#if currentTicket}}
@@ -35,7 +35,7 @@
 
             <br>
 
-            <button class="fluid danger push button cancel">
+            <button class="flui sharpd danger push button cancel">
               {{constant 'TICKET_PANEL_CANCEL'}}
             </button>
           {{/with}}
@@ -106,10 +106,10 @@
     Rate your experience with {{claimName}}.
   </p>
   <div id="rating">
-    <div class="ui massive yellow star rating"
+    <div class="ui sharp massive yellow star rating"
          data-max-rating="5"></div>
     <br>
-    <div class="ui form">
+    <div class="ui sharp form">
       <div class="field">
         <label> Do you have any comments? (Optional) </label>
         <textarea
@@ -119,7 +119,7 @@
       </div>
       <button
           id="feedback"
-          class="disabled fluid primary push button">
+          class="disabled flui sharpd primary push button">
         Submit Feedback
       </button>
     </div>

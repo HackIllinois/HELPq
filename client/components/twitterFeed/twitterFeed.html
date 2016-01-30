@@ -1,0 +1,21 @@
+<template name="twitterFeed">
+    <h2 id="head-title"> Currently On Twitter</h2>
+    <div class="feed-wrap">
+    <div class="feeds">
+        {{#each tweets}}
+        <div class="ui sharp message tweet ">
+            <p class="date">
+                {{time}}
+            </p>
+            <p>
+                {{{urlify}}}
+            </p>
+            <p>
+                - <a href="twitter.com/{{user.screen_name}}">@{{user.screen_name}}</a>
+            </p>
+        </div>
+        {{/each}}
+    </div>
+</div>
+</template>
+ 

@@ -10,7 +10,6 @@ authorized = {
   },
   sponsor: function(id){
     var user = _getUser(id);
-    console.log("hihhish");
     return user ? true : false;
   },
   admin: function(id){

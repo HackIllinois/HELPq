@@ -15,3 +15,14 @@ UI.registerHelper('constant', function(variable){
 UI.registerHelper('userIs', function(role){
   return authorized[role]();
 });
+
+// -----------------------
+// Cordova Helpers
+// -----------------------
+
+// Check if a user is using an app
+UI.registerHelper('isCordova', function(){
+  if (Meteor.isCordova){
+    return true;
+  }
+});

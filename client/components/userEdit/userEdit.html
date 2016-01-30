@@ -1,17 +1,17 @@
 <template name="userEdit">
   <div class="user-edit">
-    <div class="ui form">
+    <div class="ui sharp form">
       <div class="field">
         <label>Name</label>
-        <input type="text" class="profile" name='name' value="{{profile.name}}" placeholder="Your Name" required>
+        <input type="text" class="profile" name='name' value="{{profile.name}}" placeholder="Your Name" requi sharpred>
       </div>
       <div class="field">
         <label>Email</label>
-        <input type="email" class="profile" name='email' value="{{profile.email}}" placeholder="Email Address" required>
+        <input type="email" class="profile" name='email' value="{{profile.email}}" placeholder="Email Address" requi sharpred>
       </div>
       <div class="field">
         <label>Phone</label>
-        <input type="tel" class="profile" name='phone' value="{{profile.phone}}" placeholder="Phone Number" required>
+        <input type="tel" class="profile" name='phone' value="{{profile.phone}}" placeholder="Phone Number" requi sharpred>
       </div>
       <div class="field">
         <label>Company</label>
@@ -20,28 +20,28 @@
       <div class="field">
         <label>Skills</label>
         {{#each skills}}
-          <div class="ui label">
+          <div class="ui sharp label">
             {{skill}}
             <i class="delete skill icon" data-index="{{index}}"></i>
           </div>
         {{/each}}
-        <div class="ui fluid action input">
+        <div class="ui sharp flui sharpd action input">
           <input type="text" name="skills" placeholder="node.js, ruby, python, machine learning, etc...">
-          <div class="ui blue button add-skill">Add Skill</div>
+          <div class="ui sharp blue button add-skill">Add Skill</div>
         </div>
       </div>
       <div class="field">
-        <div class="ui fluid green save button">Save Profile</div>
+        <div class="ui sharp flui sharpd green save button">Save Profile</div>
       </div>
 
       {{#if success }}
-        <div class="ui positive message">
+        <div class="ui sharp positive message">
           <div class="header">Saved Successfully!</div>
         </div>
       {{/if}}
 
       {{#if error }}
-        <div class="ui negative message">
+        <div class="ui sharp negative message">
           <div class="header">Uh oh, something went wrong!</div>
         </div>
       {{/if}}

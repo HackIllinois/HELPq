@@ -1,4 +1,17 @@
 <template name="dashboard">
-    {{> announcementsTable}}
-    {{> twitterFeed}}
+    <section id="dashboard">
+        <div class="ui sharp centered stackable page grid">
+            <div class="centered row">
+                <div class="five wide column ">
+                    {{> twitterFeed}}
+                </div>
+                <div class="five wide column ">
+                    {{> announcementsTable}}
+                </div>
+                <div class="five  wide column ">
+                     {{> schedule}}
+                </div>
+            </div>
+        </div>
+    </section>
 </template>

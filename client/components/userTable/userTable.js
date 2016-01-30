@@ -54,18 +54,18 @@ Template.userTable.helpers({
 
     Template.userTable.events({
         'click .toggle-sponsor': function(){
-            Meteor.call("toggleRole", "sponsor", this._id);
+            Meteor.call("toggleRole", "sponsor", this._id, !this.profile.sponsor);
         },
         'click .toggle-mentor': function(){
-            Meteor.call("toggleRole", "mentor", this._id);
+            Meteor.call("toggleRole", "mentor", this._id, !this.profile.mentor);
         },
         'click .toggle-admin': function(){
             if (this._id === Meteor.userId()){
                 if (confirm('Are you sure you would like to remove your admin privileges?')){
-                    Meteor.call("toggleRole", "admin", this._id);
+                    Meteor.call("toggleRole", "admin", this._id, !this.profile.admin);
                 }
             } else {
-                Meteor.call("toggleRole", "admin", this._id);
+                Meteor.call("toggleRole", "admin", this._id, !this.profile.admin);
             }
         },
         'keyup .searchText': function(e, t){
