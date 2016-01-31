@@ -93,6 +93,8 @@ Meteor.startup(function() {
         insertTweet(tweet);
     }));
     console.log("APPLICATION INITALIZED");
+
+    console.log(Meteor.users.findOne({username: Base64.encode('naren@narendasan.com')}));
 });
 
 

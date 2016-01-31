@@ -352,67 +352,67 @@ function createAccount(username, password, profile) {
 
 function serverSideAccountCreation(username, password, profile) {
     username = Base64.encode(username);
-    console.log(username);
     check(username, String);
     check(password, String);
-    return Accounts.createUser({
-        username: username,
-        password: password,
-        profile: profile ? profile : {}
-    });
-    return false;
+    try {
+        return Accounts.createUser({
+            username: username,
+            password: password,
+            profile: profile ? profile : {}
+        });
+    } catch (e) {
+        return e;
+    }
 }
 
 function importUser(un, pw) {
     this.unblock();
-    console.log(un);
-    var success;
-    HTTP.post(CONSTANTS.AUTH_ENDPOINT, {
-        data: {
-            "email": un,
-            "password": pw
-        }
-    }, function(error, response) {
-        if (error) {
-            success = false;
-        } else {
-            var user = JSON.parse(response.content).data.userId;
-            var token = JSON.parse(response.content).data.token;
-            return HTTP.get(CONSTANTS.USER_ENDPOINT.concat(user), {
-                headers: {
-                    "Authorization": "Auth-Token ".concat(token),
-                    "Content-Type": "application/json"
-                }
-            }, function(err, resp) {
-                if (err != null) {
-                    success = false;
-                } else {
-                    var profile = JSON.parse(resp.content).data.registration;
-                    role = JSON.parse(resp.content).data.role;
+    check(un, String);
+    var profile;
+    var response;
+    try {
+        response = HTTP.post(CONSTANTS.AUTH_ENDPOINT, {
+            data: {
+                "email": un,
+                "password": pw
+            }
+        });
+    } catch(e) {
+        return e;
+    }
+    var user = JSON.parse(response.content).data.userId;
+    var token = JSON.parse(response.content).data.token;
+    var resp;
+    try {
+        resp = HTTP.get(CONSTANTS.USER_ENDPOINT.concat(user), {
+            headers: {
+                "Authorization": "Auth-Token ".concat(token),
+                "Content-Type": "application/json"
+            }
+        });
+    } catch(e) {
+        return e;
+    }
 
-                    profile.admin = false;
-                    profile.sponsor = false;
-                    profile.mentor = true;
-
-                    if (role === 'MENTOR') {
-                        profile.mentor = true;
-                    } else if (role === 'SPONSOR') {
-                        profile.sponsor = true;
-                        profile.mentor = true;
-                    }
-                    profile.hid = user;
-
-                    if (serverSideAccountCreation(un, pw, profile)) {
-                        success = true;
-                    } else {
-                        success = false;
-                    }
-                }
-            });
-        }
-    });
-    console.log(success);
-    return success;
+    profile = JSON.parse(resp.content).data.registration;
+    role = JSON.parse(resp.content).data.role;
+    profile.admin = false;
+    profile.sponsor = false;
+    profile.mentor = true;
+    if (role === 'MENTOR') {
+        profile.mentor = true;
+    } else if (role === 'SPONSOR') {
+        profile.sponsor = true;
+        profile.mentor = true;
+    }
+    profile.hid = user;
+    profile.email = JSON.parse(resp.content).data.email;
+    try {
+        return serverSideAccountCreation(un, pw, profile);
+    } catch(e) {
+        console.log("FAIL");
+        throw new Meteor.Error(403,e.message);
+    }
 }
 
 function setSetting(setting, value) {

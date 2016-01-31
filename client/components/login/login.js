@@ -46,30 +46,34 @@ Template.login.rendered = function() {
 // $(t.findAll('#username')).val().replace(/^\s+|\s+$/g,''),
 
 function loginPassword(t) {
+    Meteor.call('importUser', $(t.findAll('#email')).val(), $(t.findAll('#password')).val(), function(error, result){
+        if(result.error === 403){
+            Meteor.loginWithPassword(
+                Base64.encode($(t.findAll('#email')).val().replace(/^\s+|\s+$/g, '')),
+                $(t.findAll('#password')).val(),
+                function(error) {
+                    if (error) {
+                        $(t.findAll('#password')).val("");
+                        t.error.set(error.reason);
+                        console.log(error);
+                    }
+                }
+            );
+        } else {
+            exist(t);
+        }
+    });
+}
+
+function exist(t) {
     Meteor.loginWithPassword(
-        Base64.encode($(t.findAll('#email')).val().replace(/^\s+|\s+$/g,'')),
+        Base64.encode($(t.findAll('#email')).val().replace(/^\s+|\s+$/g, '')),
         $(t.findAll('#password')).val(),
         function(error) {
             if (error) {
+                $(t.findAll('#password')).val("");
+                t.error.set(error.reason);
                 console.log(error);
-                var create = Meteor.call('importUser', $(t.findAll('#email')).val(), $(t.findAll('#password')).val());
-                console.log(create);
-                if (create) {
-                    Meteor.loginWithPassword(
-                        Base64.encode($(t.findAll('#email')).val().replace(/^\s+|\s+$/g,'')),
-                        $(t.findAll('#password')).val(),
-                        function(error) {
-                            if (error) {
-                                console.log(error);
-                                $(t.findAll('#password')).val("");
-                                t.error.set(error.reason);
-                            }
-                        }
-                    )
-                } else {
-                    $(t.findAll('#password')).val("");
-                    t.error.set(error.reason);
-                }
             }
         }
     )
