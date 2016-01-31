@@ -122,6 +122,7 @@ import_schedule_csv = function(file) {
 
 
 function createAdmin(username, password) {
+    username = Base64.encode(username)
     var user = Meteor.users.findOne({
         username: username
     });

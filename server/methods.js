@@ -337,6 +337,7 @@ function updateUser(id, profile) {
 // Only admin can create user accounts
 function createAccount(username, password, profile) {
     // TODO: validate username, password
+    username = Base64.encode(username);
     check(username, String);
     check(password, String);
     if (authorized.admin(this.userId)) {
@@ -350,6 +351,8 @@ function createAccount(username, password, profile) {
 }
 
 function serverSideAccountCreation(username, password, profile) {
+    username = Base64.encode(username);
+    console.log(username);
     check(username, String);
     check(password, String);
     return Accounts.createUser({
@@ -362,7 +365,8 @@ function serverSideAccountCreation(username, password, profile) {
 
 function importUser(un, pw) {
     this.unblock();
-    console.log(pw);
+    console.log(un);
+    var success;
     HTTP.post(CONSTANTS.AUTH_ENDPOINT, {
         data: {
             "email": un,
@@ -370,20 +374,18 @@ function importUser(un, pw) {
         }
     }, function(error, response) {
         if (error) {
-            console.log("False at post");
-            return false;
+            success = false;
         } else {
             var user = JSON.parse(response.content).data.userId;
             var token = JSON.parse(response.content).data.token;
-            HTTP.get(CONSTANTS.USER_ENDPOINT.concat(user), {
+            return HTTP.get(CONSTANTS.USER_ENDPOINT.concat(user), {
                 headers: {
                     "Authorization": "Auth-Token ".concat(token),
                     "Content-Type": "application/json"
                 }
             }, function(err, resp) {
                 if (err != null) {
-                    console.log("False at getAllTickets ");
-                    return false;
+                    success = false;
                 } else {
                     var profile = JSON.parse(resp.content).data.registration;
                     role = JSON.parse(resp.content).data.role;
@@ -401,16 +403,16 @@ function importUser(un, pw) {
                     profile.hid = user;
 
                     if (serverSideAccountCreation(un, pw, profile)) {
-                        console.log(true);
-                        return true;
+                        success = true;
                     } else {
-                        console.log("False at creat");
-                        return false;
+                        success = false;
                     }
                 }
             });
         }
     });
+    console.log(success);
+    return success;
 }
 
 function setSetting(setting, value) {

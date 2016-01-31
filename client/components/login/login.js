@@ -47,24 +47,29 @@ Template.login.rendered = function() {
 
 function loginPassword(t) {
     Meteor.loginWithPassword(
-        $(t.findAll('#email')).val().replace(/^\s+|\s+$/g,''),
+        Base64.encode($(t.findAll('#email')).val().replace(/^\s+|\s+$/g,'')),
         $(t.findAll('#password')).val(),
         function(error) {
             if (error) {
-                // if (Meteor.call('importUser', $(t.findAll('#email')).val(), $(t.findAll('#password')).val())) {
-                //     Meteor.loginWithPassword(
-                //         $(t.findAll('#email')).val(),
-                //         $(t.findAll('#password')).val(),function(error) {
-                //             if (error) {
-                //                 $(t.findAll('#password')).val("");
-                //                 t.error.set(error.reason);
-                //             }
-                //         }
-                //     )
-                // } else {
+                console.log(error);
+                var create = Meteor.call('importUser', $(t.findAll('#email')).val(), $(t.findAll('#password')).val());
+                console.log(create);
+                if (create) {
+                    Meteor.loginWithPassword(
+                        Base64.encode($(t.findAll('#email')).val().replace(/^\s+|\s+$/g,'')),
+                        $(t.findAll('#password')).val(),
+                        function(error) {
+                            if (error) {
+                                console.log(error);
+                                $(t.findAll('#password')).val("");
+                                t.error.set(error.reason);
+                            }
+                        }
+                    )
+                } else {
                     $(t.findAll('#password')).val("");
                     t.error.set(error.reason);
-                //}
+                }
             }
         }
     )
