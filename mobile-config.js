@@ -36,3 +36,10 @@ App.launchScreens({
 
 App.setPreference('BackupWebStorage', 'local');
 App.accessRule("*");
+
+if (this.process.env.NODE_ENV === 'production') {
+
+}
+else {
+
+}

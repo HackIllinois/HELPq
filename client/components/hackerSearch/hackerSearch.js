@@ -3,20 +3,20 @@ var filters = {
     ,
     hacker: {
         'profile.mentor': {
-            $in: [false, null]
+            $in: [true, null]
         },
         'profile.admin': {
             $in: [false, null]
         }
     },
     sponsor: {
-        'profile.sponsor' : true
+        'profile.sponsor' : false
     },
     mentor: {
         'profile.mentor': true
     },
     admin: {
-        'profile.admin': true
+        'profile.admin': false
     }
 };
 
@@ -36,8 +36,19 @@ Template.hackerSearch.helpers({
     filter: function(){
         return Template.instance().filter.get();
     },
+    resume: function(){
+        if (this.profile.resume != null) {
+            return true;
+        }
+        return false;
+    },
     searchText: function() {
         return Template.instance().searchText.get();
+    },
+    github: function(){
+        if (this.profile.github_url != null) {
+            return (this.profile.github_url).substr(this.profile.github_url.lastIndexOf('/') + 1);;
+        }
     },
     users: function(){
         var t = Template.instance();
@@ -52,7 +63,7 @@ Template.hackerSearch.helpers({
         }
     });
 
-    Template.userTable.events({
+    Template.hackerSearch.events({
         'click .toggle-sponsor': function(){
             Meteor.call("toggleRole", "sponsor", this._id);
         },
@@ -76,24 +87,24 @@ Template.hackerSearch.helpers({
             var filter = filters[e.target.getAttribute('data-filter')];
             t.filter.set(filter);
         },
-        'click .edit-user.button': function(e, t){
+        'click .info-user.button': function(e, t){
             t.modal.set(Blaze.renderWithData(
-                Template.userEdit,
+                Template.userInfo,
                 this,
-                $('.edit-user.modal .content').get(0)));
+                $('.info-user.modal .content').get(0)));
 
                 // Semantic-UI wants to remove the modal from the template and add it
                 // to a page dimmer.
                 // Modal needs to be detachable, so that it is not removed
                 // from the template and pile up in the body.
-                $('.ui.edit-user.modal')
+                $('.ui.info-user.modal')
                 .modal({
                     'detachable': false,
                     'closable': false
                 })
                 .modal('show');
             },
-            'click .edit-user.modal .close': function(e, t){
+            'click .info-user.modal .close': function(e, t){
                 Blaze.remove(t.modal.get());
             }
         });

@@ -14,8 +14,36 @@
         <input type="tel" class="profile" name='phone' value="{{profile.phone}}" placeholder="Phone Number" requi sharpred>
       </div>
       <div class="field">
+        <label>School</label>
+        <input type="text" class="profile" name='school' value="{{profile.school}}" placeholder="Your School" requi sharpred>
+      </div>
+      <div class="field">
+        <label>Graduating Year</label>
+        <input type="text" class="profile" name='year' value="{{profile.gratuation_year}}" placeholder="Your Graudation Year" requi sharpred>
+      </div>
+      <div class="field">
+        <label>Major</label>
+        <input type="text" class="profile" name='major' value="{{profile.major}}" placeholder="Your Major" requi sharpred>
+      </div>
+      <div class="field">
         <label>Company</label>
         <input type="text" class="profile" name='company' value="{{profile.company}}" placeholder="Company/Position">
+      </div>
+      <div class="field">
+        <label>Github</label>
+        <input type="text" class="profile" name='github_url' value="{{profile.github_url}}" placeholder="Your Github" requi sharpred>
+      </div>
+      <div class="field">
+        <label>LinkedIn</label>
+        <input type="text" class="profile" name='linkedin_url' value="{{profile.linkedin_url}}" placeholder="Your LinkedIn" requi sharpred>
+      </div>
+      <div class="field">
+        <label>Personal Site</label>
+        <input type="text" class="profile" name='site_url' value="{{profile.site_url}}" placeholder="Your Site" requi sharpred>
+      </div>
+      <div class="field">
+        <label>Open Source Projects</label>
+        <input type="text" class="profile" name='open_source_interests' value="{{profile.open_source_interests}}" placeholder="Interesting Open Source Projects" requi sharpred>
       </div>
       <div class="field">
         <label>Skills</label>
@@ -25,13 +53,13 @@
             <i class="delete skill icon" data-index="{{index}}"></i>
           </div>
         {{/each}}
-        <div class="ui sharp flui sharpd action input">
+        <div class="ui sharp fluid sharp action input">
           <input type="text" name="skills" placeholder="node.js, ruby, python, machine learning, etc...">
           <div class="ui sharp blue button add-skill">Add Skill</div>
         </div>
       </div>
       <div class="field">
-        <div class="ui sharp flui sharpd green save button">Save Profile</div>
+        <div class="ui sharp fluid sharp green save button">Save Profile</div>
       </div>
 
       {{#if success }}

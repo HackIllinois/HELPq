@@ -29,6 +29,15 @@ Router.route('/profile', function(){
   this.render('profile');
 });
 
+Router.route('/user/:hid', function(){
+    this.layout('bannerLayout');
+    this.render('user', {
+        data: {
+            hid: this.params.hid
+        }
+    });
+});
+
 Router.route('/sponsor', function(){
     this.layout('bannerLayout');
 //    if (authorized.sponsor()){

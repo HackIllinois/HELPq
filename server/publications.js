@@ -11,6 +11,7 @@ Meteor.publish("activeTickets", getActiveTickets);
 Meteor.publish("allTickets", getAllTickets);
 Meteor.publish("ticketData", getTicketData);
 Meteor.publish("userTickets", getUserTickets);
+Meteor.publish("userResume", getUserByHid);
 
 Meteor.publish("allAnnouncements", getAllAnnouncements);
 
@@ -22,7 +23,7 @@ Meteor.publish("tweets", getTweets);
 
 // Get user data on yourself
 function getUserData(){
-  if (authorized.user(this.userId)) {
+  if (authorized.user(this.userId) || authorized.sponsor(this.userId) || authorized.admin(this.userId) ) {
     return Meteor.users.find({_id: this.userId},
         {
           fields: {
@@ -37,7 +38,7 @@ function getUserData(){
 
 // Get all users
 function getAllUsers(){
-  if (authorized.admin(this.userId)) {
+  if (authorized.admin(this.userId) || authorized.sponsor(this.userId)) {
     return Meteor.users.find({},
         {
           fields: {
@@ -48,6 +49,12 @@ function getAllUsers(){
           }
         });
   }
+}
+
+function getUserByHid(hid) {
+   if (authorized.sponsor(this.userId)) {
+        return Meteor.users.findOne({'profile.hid': hid});
+    }
 }
 
 // Mentors are able to see each other.

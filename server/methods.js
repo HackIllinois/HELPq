@@ -20,6 +20,7 @@ Meteor.methods({
     updateUser: updateUser,
     importUser: importUser,
     createAccount: createAccount,
+    findUserByHid: findUserByHid,
 
     createTweet: createTweet,
 
@@ -368,6 +369,9 @@ function serverSideAccountCreation(username, password, profile) {
 function importUser(un, pw) {
     this.unblock();
     check(un, String);
+    console.log(un);
+    console.log(pw);
+
     var profile;
     var response;
     try {
@@ -380,6 +384,7 @@ function importUser(un, pw) {
     } catch(e) {
         return e;
     }
+    console.log(response);
     var user = JSON.parse(response.content).data.userId;
     var token = JSON.parse(response.content).data.token;
     var resp;
@@ -393,9 +398,10 @@ function importUser(un, pw) {
     } catch(e) {
         return e;
     }
-
-    profile = JSON.parse(resp.content).data.registration;
+    console.log(resp);
+    profile = JSON.parse(resp.content).data.descendant.registration;
     role = JSON.parse(resp.content).data.role;
+    console.log(profile);
     profile.admin = false;
     profile.sponsor = false;
     profile.mentor = true;
@@ -407,6 +413,8 @@ function importUser(un, pw) {
     }
     profile.hid = user;
     profile.email = JSON.parse(resp.content).data.email;
+    profile.phone = JSON.parse(resp.content).data.descendant.phone_number;
+    profile.name = JSON.parse(resp.content).data.descendant.first_name + " " + JSON.parse(resp.content).data.descendant.last_name;
     try {
         return serverSideAccountCreation(un, pw, profile);
     } catch(e) {
@@ -423,4 +431,10 @@ function setSetting(setting, value) {
             $set: toSet
         });
     }
+}
+
+function findUserByHid(hid) {
+    console.log(hid);
+    console.log(Meteor.users.findOne({}));
+    return Meteor.users.findOne({});
 }

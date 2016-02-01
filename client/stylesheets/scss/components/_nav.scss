@@ -14,13 +14,17 @@
 
   #mobile-nav {
     display: none;
-    
+
   }
 }
 
 @media only screen and (max-width: 769px) {
 
   #nav {
+    //display: none;
+  }
+  #mobile-nav {
     display: none;
+
   }
 }

@@ -1,6 +1,6 @@
 <template name="ticket">
   <div class="animated flipInX
-              ui sharp flui sharpd card ticket {{#if statusIs 'CLAIMED'}}claimed{{/if}}">
+              ui sharp fluid sharp card ticket {{#if statusIs 'CLAIMED'}}claimed{{/if}}">
     <div class="content">
       {{#if userIs 'admin'}}
         <i class="right floated red remove link cancel button icon"></i>
@@ -45,9 +45,9 @@
         {{else}}
 
           {{#if hasClaimedTicket}}
-            <button class="disabled primary flui sharpd push button claim">Claim Ticket</button>
+            <button class="disabled primary fluid sharp push button claim">Claim Ticket</button>
           {{else}}
-            <button class="primary flui sharpd push button claim">Claim Ticket</button>
+            <button class="primary fluid sharp push button claim">Claim Ticket</button>
           {{/if}}
 
         {{/if}}
@@ -55,8 +55,8 @@
 
       {{#if statusIs "CLAIMED"}}
         {{#if claimer}}
-          <button class="flui sharpd success push button complete">Mark as Complete</button>
-          <button class="flui sharpd primary push button reopen">Reopen Ticket</button>
+          <button class="fluid sharp success push button complete">Mark as Complete</button>
+          <button class="fluid sharp primary push button reopen">Reopen Ticket</button>
         {{else}}
           <div class="right floated author">
             Claimed by {{claimName}}

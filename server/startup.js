@@ -94,7 +94,7 @@ Meteor.startup(function() {
     }));
     console.log("APPLICATION INITALIZED");
 
-    console.log(Meteor.users.findOne({username: Base64.encode('naren@narendasan.com')}));
+    console.log(Meteor.users.findOne({'profile.hid': 5677350838599680}));
 });
 
 

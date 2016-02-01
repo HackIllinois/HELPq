@@ -1,11 +1,10 @@
-<template name="profile">
-  <div id="profile">
+<template name="user">
+  <div id="user">
     <div class="sixteen column centered ui sharp stackable page grid">
       <div class="eight wide column">
-        <h1 class="ui sharp title header">Your Account</h1>
         <div class="ui sharp fluid sharp segment">
-          {{#with currentUser}}
-            {{> userEdit }}
+          {{#with user}}
+            {{> userInfo }}
           {{/with}}
         </div>
       </div>

@@ -1,0 +1,87 @@
+<template name="userInfo">
+    <div class="user-info" style="font-size:12pt;">
+        <div class="ui sharp form">
+            <div class="info">
+                <h1 class="ui sharp title header"> {{profile.name}}</h1>
+                <br/>
+            </div>
+            <div class="info">
+                <label><b>Email:</b></label>
+                <br/>
+                <a herf="mailto:{{profile.email}}">{{profile.email}}</a>
+            </div>
+            <div class="info">
+                {{#if phone}}
+                    <label><b>Phone:</b></label>
+                    <br/>
+                    {{profile.phone}}
+                {{/if}}
+            </div>
+            <div class="info">
+                <label><b>School:</b></label>
+                <br/>
+                {{profile.school}}
+            </div>
+            <div class="info">
+                <label><b>Graduating Year:</b></label>
+                <br/>
+                {{profile.graduation_year}}
+            </div>
+            <div class="info">
+                <label><b>Major:</b></label>
+                <br/>
+                {{profile.major}}
+            </div>
+            <div class="info">
+                {{#if company}}
+                    <label><b>Company:</b></label>
+                    <br/>
+                    {{profile.company}}
+                {{/if}}
+            </div>
+            <div class="info">
+                {{#if  githubExists}}
+                    <label><b>Github:</b></label>
+                    <br/>
+                    <a herf="{{profile.github_url}}">{{github}}</a>
+                {{/if}}
+            </div>
+            <div class="info">
+                {{#if linkedInExists}}
+                    <label><b>Linkedin:</b></label>
+                    <br/>
+                    <a herf="{{profile.linkedin_url}}">{{profile.linkedin_url}}</a>
+                {{/if}}
+            </div>
+            <div class="info">
+                {{#if siteExists}}
+                    <label><b>Site:</b></label>
+                    <br/>
+                    <a herf="{{profile.site_url}}">{{profile.site_url}}</a>
+                {{/if}}
+            </div>
+            <div class="info">
+                {{#if  opensource}}
+                    <label><b>Open Source Interests:</b></label>
+                    <br/>
+                    {{profile.open_source_interests}}
+                {{/if}}
+            </div>
+            <div class="info">
+                <label><b>Skills:</b></label>
+                <br/>
+                {{#each skills}}
+                <div class="ui sharp label" style="font-size:12pt;">
+                    {{skill}}
+                </div>
+                {{/each}}
+            </div>
+            <br/>
+            {{#if resume}}
+                <span class="ui sharp tiny blue button download-resume">
+                    <a href="https://hackillinois.org/download/resume/{{profile.resume}}" style="color:white">Resume</a>
+                </span>
+            {{/if}}
+        </div>
+    </div>
+</template>
