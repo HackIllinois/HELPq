@@ -9,7 +9,6 @@ if (Meteor.isCordova) {
 
       cordova.plugins.barcodeScanner.scan(
         function (result) {
-            alert(result.text);
             Router.go('/user/'+result.text);
         },
         function (error) {
