@@ -54,8 +54,7 @@ Meteor.startup(function() {
         return user;
     });
 
-    var Twit = Meteor.npmRequire('twit');
-    var T = new Twit(config.twitter);
+    var T = new TwitMaker(config.twitter);
 
     Tweets.remove({})
 
