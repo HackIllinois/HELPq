@@ -37,7 +37,7 @@ Template.userCreation.events({
     // Create the users one by one
     t.users.get().forEach(function(user, idx){
       Meteor.call("createAccount",
-          user.username,
+          Base64.encode(user.username),
           user.password,
           user.profile,
           function(error){
