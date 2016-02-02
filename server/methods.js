@@ -434,7 +434,5 @@ function setSetting(setting, value) {
 }
 
 function findUserByHid(hid) {
-    console.log(hid);
-    console.log(Meteor.users.findOne({'profile.hid':hid}));
-    return Meteor.users.findOne({'profile.hid':hid});
+    return Meteor.users.findOne({'profile.hid':Number(hid)});
 }
