@@ -1,0 +1,89 @@
+#transit{
+
+    box-shadow: 20px 20px 0 rgba(0,0,0,.3);
+    background-color: white !important;
+    padding: 25px;
+    width: 75%;
+   /* Set the margin-left and margin-right automatically set */
+   margin: 0 auto;
+}
+
+a {
+    color: #f2b48c;
+}
+
+.text-header{
+	text-align: center;
+    color: #5E6864;
+}
+
+.arrow {
+    color:#F1B287;
+}
+
+.arrow1 {
+    color:#E08372;
+}
+
+h3{
+	font-size: 2.0em;
+    color: #5E6864;
+}
+h4{
+        color: #5E6864;
+	font-size: 1.6em;
+}
+h5{
+        color: #5E6864;
+	font-size: 1.6em;
+}
+
+p {
+    color:20px;
+}
+.down {
+    float: right;
+     display: inline-block;
+}
+.single-route-info{
+    border-width: 0px;
+    border-bottom-width: 1px;
+    border-style: solid;
+    border-color:rgba(46,50,48,.1);;
+      vertical-align: middle;
+}
+
+.single-route-info p {
+	font-size: 1.0em;
+	padding: 0;
+	margin: 0;
+	display: none;
+    font-size: 20px;
+}
+
+.single-route-info h5{
+	font-size: 1.0em;
+	padding: 0;
+	margin: 0;
+	display: none;
+    font-size: 20px;
+}
+.single-route-info td{
+	font-size: 1.1em;
+}
+.single-route-info tr td:first-child{
+	min-width: 150px;
+}
+
+
+.single-route-info table{
+	margin: 1em 0;
+	display: none;
+}
+
+.single-route-info table.show, .single-route-info p.show{
+	display: block;
+}
+.single-route-info table.show, .single-route-info h5.show{
+	display: block;
+}

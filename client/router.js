@@ -8,7 +8,7 @@ var requireLogin = function() {
  }
 }
 
-Router.onBeforeAction(requireLogin, {except: ['dashboard', 'forgot']});
+Router.onBeforeAction(requireLogin, {except: ['dashboard', 'forgot', 'transportation']});
 
 Router.route('/', function(){
   this.layout('bannerLayout');
@@ -27,6 +27,11 @@ Router.route('/dashboard', function(){
 Router.route('/profile', function(){
   this.layout('bannerLayout');
   this.render('profile');
+});
+
+Router.route('/transportation', function(){
+  this.layout('staticLayout');
+  this.render('transportation');
 });
 
 Router.route('/user/:hid', function(){

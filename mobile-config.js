@@ -1,7 +1,7 @@
 // This section sets up some basic app metadata,
 // the entire section is optional.
 App.info({
-  id: 'com.hackillinois.helpq.alpha',
+  id: 'com.hackillinois.helpq',
   name: 'Hackillinois Helpq',
   description: 'Get help on your hacks during Hackillinois',
   author: 'Hackillinois',
@@ -11,9 +11,13 @@ App.info({
 
 // // Set up resources such as icons and launch screens.
 App.icons({
-  'iphone': 'ios_icns/ios.png',
-  'iphone_3x': 'ios_icns/ios@2x.png',
-  'iphone_3x': 'ios_icns/ios@3x.png',
+  'iphone': 'ios_icns/iOS.png',
+  'iphone_2x': 'ios_icns/iOS@2x.png',
+  'iphone_3x': 'ios_icns/iOS@3x.png',
+
+  'android_mdpi': 'andr_icns/icon_mdpi.png',
+  'android_hdpi': 'andr_icns/icon_hdpi.png',
+  'android_xhdpi': 'andr_icns/icon_xhdpi.png',
   //'android_xhdpi':: 'andr_icns/icon_xxxhdpi.png'
   // ... more screen sizes and platforms ...
  });
@@ -21,6 +25,7 @@ App.icons({
 App.launchScreens({
    'iphone': 'ios_splash/Default-Portrait.png',
    'iphone_2x': 'ios_splash/Default@2x.png',
+   //'iphone_3x': 'ios_splash/Default@3x.png',
 //   // ... more screen sizes and platforms ...
 });
 //

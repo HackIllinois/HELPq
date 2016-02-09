@@ -17,7 +17,7 @@ $brand-secondary: #413F56;
 $brand-background: linear-gradient(
   rgba(0, 0, 0, 0.3),
   rgba(0, 0, 0, 0.3)
-),url(/assets/images/bg@2x.png) ;
+),url(/assets/images/bg@2x.png) no-repeat center center fixed;
 
 // Success Buttons
 $brand-success: #79B3B0;
@@ -61,6 +61,12 @@ $github-gray: #e4e4e4;
   url("/fonts/Brandon_light.eot");
 }
 
+@font-face {
+    font-family: "Gotham";
+    src:
+    url("/fonts/GOTHAM-MEDIUM.tff");
+}
+
 
 @mixin font-stack(){
   font-family: BrandonReg;
@@ -99,6 +105,10 @@ $github-gray: #e4e4e4;
 
   // Background image that repeats
   background: $brand-background !important;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 
@@ -116,6 +126,10 @@ $github-gray: #e4e4e4;
 
   // Repeated Background:
   background: $brand-background;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 // Footer, which appears on each page.

@@ -28,6 +28,7 @@
 @import 'views/error';
 @import 'views/admin';
 @import 'views/profile';
+@import 'views/transit';
 
 body,
 html,
@@ -49,7 +50,12 @@ html {
     background: linear-gradient(
       rgba(0, 0, 0, 0.3),
       rgba(0, 0, 0, 0.3)
-    ),url(/assets/images/bg@2x.png);
+    ),url(/assets/images/bg@2x.png) no-repeat
+    center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
 }
 
 // Layout
